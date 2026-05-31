@@ -1,0 +1,172 @@
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AEDTP WORLD FREE LICENSE (AWFL) WIKI METADATA | AEDTP WORLD FREE LICENSE (AWFL) | Music Meta Data | Biography | Artists | Dictionary | Business | Wiki | News | pages  |Help | About | Submit | Education | Instrumentals | Submission | Uploads | Cayla AI | AEDTP World | Apps | AWFL WIKI | Developers | Install | Publish | Distribution | Submit Apps | Contact | aedtpworld@gmail.com | Emmanuel Deliver Amable | AEDTP WORLD</title>
+<meta name="title" content="AEDTP WORLD FREE LICENSE (AWFL) WIKI METADATA" />
+<meta name="description" content="The Global Smartest WIKI METADATA Engine of AEDTP WORLD. Developed by AEDTP WORLD. Quick Results, and Relevant Information Provider." />
+<meta name="keywords" content="AEDTP WORLD SEARCH ENGINE, AEDTP WORLD, SEARCH ENGINE, Tech Search, Quick Results, Relevant Information Provider, #1 Search Engine, Top Of The List Search Engine" />
+<meta name="author" content="AEDTP WORLD" />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:title" content="AEDTP WORLD FREE LICENSE (AWFL) WIKI METADATA" />
+<meta property="og:description" content="The Global Smartest WIKI METADATA Engine of AEDTP WORLD. Developed by AEDTP WORLD. Quick Results, and Relevant Information Provider." />
+<meta property="og:image" content="https://awflmeta.neocities.org/icons/aedtpworldawfl.png" />
+<meta property="og:type" content="website" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AEDTP WORLD FREE LICENSE (AWFL) WIKI METADATA" />
+<meta name="twitter:description" content="The Global Smartest WIKI METADATA Engine of AEDTP WORLD. Developed by AEDTP WORLD. Quick Results, and Relevant Information Provider." />
+<meta name="twitter:image" content="https://awflmeta.neocities.org/icons/aedtpworldawfl.png" />
+
+<!-- Icons -->
+<link rel="icon" href="https://awflmeta.neocities.org/icons/aedtpworld.png" type="image/png" />
+<link rel="shortcut icon" href="https://awflmeta.neocities.org/icons/aedtpworldawfl.png" type="image/png" />
+
+<link rel="stylesheet" href="style.css">
+
+<!-- CLEAR BLUE THEME OVERRIDE -->
+<style>
+:root {
+  --accent: #00c8ff;   /* clear blue */
+  --accent2: #0099ff;  /* secondary blue */
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="https://awflmeta.neocities.org/">AEDTP WORLD FREE LICENSE (AWFL) WIKI</a>
+  <nav>
+    <a href="https://awflmeta.neocities.org/developers/">Home</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">AEDTP WORLD FREE LICENSE</div>
+  <h1 id="dynamic-heading">Develop<span>ers</span></h1>
+  <p class="hero-sub" id="hero-subtext">Explore verified Developers profiles documented under the AEDTP World Free License. All records are structured for historical and identity metadata.</p>
+</section>
+
+<!-- STATUS / LOADING -->
+<div id="status">
+  <div class="spinner"></div>
+  Loading developers  profiles…
+</div>
+
+<!-- developers INJECTED HERE -->
+<div id="developers-container"></div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© AEDTP WORLD — <a href="mailto:aedtpworld@gmail.com">aedtpworld@gmail.com</a></p>
+  <p>AEDTP WORLD FREE LICENSE (AWFL) WIKI | AEDTP WORLD</p>
+</footer>
+
+<script src="script.js"></script>
+
+<!-- 
+  FIX: case‑insensitive detection for "Developers"
+  Instead of always showing "developers", if the loaded content contains 
+  "developers" (any case), the heading changes to "Developers".
+  Also adjusts the subtitle accordingly.
+-->
+<script>
+(function() {
+  // Helper: check if any text inside #developers-container contains "developers" (case‑insensitive)
+  function containsDevelopers() {
+    const container = document.getElementById('developers-container');
+    if (!container) return false;
+    const text = container.innerText || container.textContent;
+    // Use regex with word boundaries to avoid partial matches like "developer's"
+    return /\bdevelopers\b/i.test(text);
+  }
+
+  // Update the hero heading and subtext based on content
+  function updateHeadingIfDevelopers() {
+    const headingSpan = document.getElementById('dynamic-heading');
+    const subtext = document.getElementById('hero-subtext');
+    if (!headingSpan) return;
+
+    if (containsDevelopers()) {
+      //  "Developers" (preserve the <span> for styling)
+      headingSpan.innerHTML = 'Develop<span>ers</span>';
+      if (subtext) {
+        subtext.innerHTML = 'Explore verified developer profiles documented under the AEDTP World Free License. All records are structured for historical and identity metadata.';
+      }
+    } else {
+      // Keep original "developers" if not developers
+      headingSpan.innerHTML = 'Develop<span>ers</span>';
+      if (subtext) {
+        subtext.innerHTML = 'Explore verified developers  profiles documented under the AEDTP World Free License. All records are structured for historical and identity metadata.';
+      }
+    }
+  }
+
+  // Wait for script.js to populate the container, then run once and observe further changes
+  function waitForContainerAndObserve() {
+    const container = document.getElementById('developers-container');
+    if (!container) return;
+
+    // Initial check after a short delay (allow script.js to finish first render)
+    setTimeout(updateHeadingIfDevelopers, 300);
+
+    // Observe future changes in the container (e.g., after rebuild or new data)
+    const observer = new MutationObserver(function(mutations) {
+      // Only run when nodes are added/removed or text changes
+      let shouldUpdate = false;
+      for (let m of mutations) {
+        if (m.type === 'childList' || m.type === 'characterData') {
+          shouldUpdate = true;
+          break;
+        }
+      }
+      if (shouldUpdate) updateHeadingIfDevelopers();
+    });
+    observer.observe(container, { childList: true, subtree: true, characterData: true });
+  }
+
+  // Start after DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', waitForContainerAndObserve);
+  } else {
+    waitForContainerAndObserve();
+  }
+})();
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
